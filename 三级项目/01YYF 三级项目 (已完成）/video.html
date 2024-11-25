@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 前面的样式保持不变 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* ... 其他原有样式 ... */
+
+        /* 更新底部导航栏样式 */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #666;
+            font-size: 12px;
+            gap: 5px;
+        }
+
+        .nav-item.active {
+            color: #1890ff;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部和内容部分保持不变 -->
+    <div class="header">
+        <div class="search-icon">⚲</div>
+    </div>
+
+    <div class="nav">
+        <a href="index.html" class="nav-item active">推荐</a>
+        <a href="hot.html" class="nav-item">热点</a>
+        <a href="review.html" class="nav-item">锐评</a>
+        <a href="broadcast.html" class="nav-item">播报</a>
+        <a href="pages.html" class="nav-item">版面</a>
+        <a href="international.html" class="nav-item">国际</a>
+        <a href="sports.html" class="nav-item">体育</a>
+    </div>
+
+    <!-- 内容部分保持不变 -->
+    <div class="content">
+        <!-- ... 原有内容 ... -->
+    </div>
+
+    <!-- 更新后的底部导航栏 -->
+    <nav class="bottom-nav">
+        <a href="./index.html" class="nav-item active" onclick="switchPage('newsPage', this)">
+            <span class="nav-icon">📰</span>
+            <span>新闻</span>
+        </a>
+        
+        <a href="./people.html" class="nav-item" onclick="switchPage('peoplePage', this)">
+            <span class="nav-icon">📱</span>
+            <span>人民号</span>
+        </a>
+        
+        <a href="./video.html" class="nav-item" onclick="switchPage('videoPage', this)">
+            <span class="nav-icon">🎥</span>
+            <span>视频</span>
+        </a>
+        
+        <a href="./service.html" class="nav-item" onclick="switchPage('servicePage', this)">
+            <span class="nav-icon">❤️</span>
+            <span>服务</span>
+        </a>
+        
+        <a href="./my.html" class="nav-item" onclick="switchPage('myPage', this)">
+            <span class="nav-icon">👤</span>
+            <span>我的</span>
+        </a>
+    </nav>
+</body>
+</html>

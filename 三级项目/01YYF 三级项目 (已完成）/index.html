@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人民日报</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        .search-bar {
+            display: flex;
+            padding: 12px 16px;
+            background: #fff;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .search-input {
+            background: #f5f5f5;
+            border-radius: 16px;
+            height: 32px;
+            width: 120px;
+            padding: 0 12px;
+            font-size: 14px;
+            border: none;
+            color: #999;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .separator {
+            color: #ddd;
+            margin: 0 8px;
+        }
+
+        .logo {
+            padding: 12px 0;
+            text-align: center;
+            background: #fff;
+        }
+
+        .logo img {
+            width: 90px;
+            height: 24px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #fff;
+            padding: 0 12px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            gap: 32px;
+            position: sticky;
+            top: 56px;
+            z-index: 99;
+        }
+
+        .nav-tab {
+            padding: 12px 0;
+            font-size: 16px;
+            position: relative;
+            white-space: nowrap;
+            color: #666;
+        }
+
+        .nav-tab.active {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #f26b3a;
+        }
+
+        .news-list {
+            padding: 0 16px;
+            background: #fff;
+        }
+
+        .news-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .news-title {
+            font-size: 19px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #999;
+            gap: 8px;
+        }
+
+        .image-card {
+            margin: 16px -16px;
+            background: #E85C2E;
+            padding: 16px;
+            color: #fff;
+            position: relative;
+        }
+
+        .image-card-text {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .blue-card {
+            margin: 16px -16px;
+            background: #0066FF;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .article-with-image {
+            display: flex;
+            gap: 12px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        .article-image {
+            width: 120px;
+            height: 80px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .topic-card {
+            margin: 16px -16px;
+            background: #f8f8f8;
+            padding: 16px;
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .topic-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .topic-more {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .topic-item {
+            background: #fff;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .topic-item-title {
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .topic-item-meta {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background: white;
+            padding: 8px 0 4px;
+            border-top: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            gap: 4px;
+        }
+
+        .nav-item.active {
+            color: #f26b3a;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .page {
+            display: none;
+            animation: fadein 0.3s;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .video-preview {
+            position: relative;
+            margin: 16px -16px;
+            height: 200px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .notice-bar {
+            background: #fff7e6;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: #f26b3a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page-content {
+            padding-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="newsPage" class="page active">
+        <div class="page-content">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="黑神话悟空" readonly>
+                <div class="right-icons">
+                    <span>早晚报</span>
+                    <span class="separator">|</span>
+                    <span class="camera-icon">📷</span>
+                </div>
+            </div>
+
+            <div class="logo">
+                <svg width="90" height="24">
+                    <image href="./image/人民日报.jpeg" width="90" height="24"/>
+                </svg>
+            </div>
+
+            <div class="nav-tabs">
+                <div class="nav-tab">推荐</div>
+                <div class="nav-tab active">热点</div>
+                <div class="nav-tab">锐评</div>
+                <div class="nav-tab">播报</div>
+                <div class="nav-tab">版面</div>
+                <div class="nav-tab">国际</div>
+                <div class="nav-tab">体育</div>
+            </div>
+
+            <div class="notice-bar">
+                📢 直播：第六届进博会开幕式
+            </div>
+
+            <div class="news-list">
+                <div class="news-item">
+                    <h2 class="news-title">习近平抵达巴西利亚开始对巴西进行国事访问</h2>
+                    <div class="news-meta">
+                        <span>人民日报客户端</span>
+                        <span>9小时前</span>
+                        <span>1702评</span>
+                    </div>
+                </div>
+
+                <div class="video-preview">
+                    <img src="./image/W020241120414045475590_ORIGIN.jfif" alt="视频预览">
+                    <div class="video-play">▶️</div>
+                </div>
+                </div>
+
+                <div class="news-item">
+                    <h2 class="news-title">习近平向2024年世界互联网大会乌镇峰会开幕视频致贺</h2>
+                    <div class="news-meta">
+                        <span>新华社</span>
+                        <span>3小时前</span>
+                        <span>443评</span>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <div class="image-card-text">一路走来，初心不改！这是习近平立志要办成的一件大事</div>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-title">热门专题</div>
+                        <div class="topic-more">更多 ></div>
+                    </div>
+                    <div class="topic-grid">
+                        <div class="topic-item">
+                            <div class="topic-item-title">中国经济高质量发展</div>
+                            <div class="topic-item-meta">3.2万讨论</div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-item-title">第六届进博会</div>
+                            <div class="topic-item-meta">1.8万讨论</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blue-card">
+                    习近平出席APEC领导人非正式会议并访问秘鲁 出席G20峰会并访问巴西
+                </div>
+
+                <div class="article-with-image">
+                    <div class="article-content">
+                        <h2 class="news-title">如何看中国改革开放？人民日报从"中国之车"与"中国之船"谈起</h2>
+                        <div class="news-meta">
+                            <span>人民日报</span>
+                            <span>6小时前</span>
+                            <span>204评</span>
+                        </div>
+                    </div>
+                    <div class="article-image">
+                        <svg width="120" height="80">
+                            <image href="./image/文章.jpg" width="120" height="80"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="article-with-image">
+                    <div class="article-content">
+                        <h2 class="news-title">首届中国国际供应链促进博览会将于11月28日在北京举办</h2>
+                        <div class="news-meta">
+                            <span>人民日报</span>
+                            <span>1小时前</span>
+                            <span>156评</span>
+                        </div>
+                    </div>
+                    <div class="article-image">
+                        <svg width="120" height="80">
+                            <image href="./image/文章.jpg" width="120" height="80"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 其他页面保持不变 -->
+    <div id="peoplePage" class="page">
+        <div class="page-content">
+            <div style="padding: 20px; text-align: center;">
+                <h1>人民号页面</h1>
+                <p>这里是人民号的内容</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="videoPage" class="page">
+        <div class="page-content">
+            <div style="padding: 20px; text-align: center;">
+                <h1>视频页面</h1>
+                <p>这里是视频内容</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="servicePage" class="page">
+        <div class="page-content">
+            <div style="padding: 20px; text-align: center;">
+                <h1>服务页面</h1>
+                <p>这里是服务内容</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="myPage" class="page">
+        <div class="page-content">
+            <div style="padding: 20px; text-align: center;">
+                <h1>我的页面</h1>
+                <p>这里是个人中心内容</p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部导航栏 -->
+<!-- 底部导航栏 -->
+<nav class="bottom-nav">
+    <!-- 新闻页面链接 -->
+    <a href="./index.html" class="nav-item active" onclick="switchPage('newsPage', this)">
+        <span class="nav-icon">📰</span>
+        <span>新闻</span>
+    </a>
+    
+    <!-- 人民号页面链接 -->
+    <a href="./people.html" class="nav-item" onclick="switchPage('peoplePage', this)">
+        <span class="nav-icon">📱</span>
+        <span>人民号</span>
+    </a>
+    
+    <!-- 视频页面链接 -->
+    <a href="./video.html" class="nav-item" onclick="switchPage('videoPage', this)">
+        <span class="nav-icon">🎥</span>
+        <span>视频</span>
+    </a>
+    
+    <!-- 服务页面链接 -->
+    <a href="./service.html" class="nav-item" onclick="switchPage('servicePage', this)">
+        <span class="nav-icon">❤️</span>
+        <span>服务</span>
+    </a>
+    
+    <!-- 个人页面链接 -->
+    <a href="./my.html" class="nav-item" onclick="switchPage('myPage', this)">
+        <span class="nav-icon">👤</span>
+        <span>我的</span>
+    </a>
+</nav>
+    <script>
+        function switchPage(pageId, navItem) {
+            // 移除所有页面的active类
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 移除所有导航项的active类
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 添加active类到选中的页面和导航项
+            document.getElementById(pageId).classList.add('active');
+            navItem.classList.add('active');
+
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

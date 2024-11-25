@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理论网</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .nav-item:hover {
+            background-color: #b91c1c;
+        }
+        .news-arrow::before {
+            content: "►";
+            color: #dc2626;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+        .top-nav-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .section-title {
+            color: #dc2626;
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #dc2626;
+            margin-bottom: 1rem;
+        }
+        .article-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .read-more {
+            color: #dc2626;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .read-more:hover {
+            background-color: #fee2e2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Previous content remains the same until main -->
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-12 gap-6">
+            <!-- Left Column -->
+            <div class="col-span-8">
+                <!-- Previous content remains the same -->
+                
+                <!-- Theory Articles Section -->
+                <div class="bg-white p-6 mb-6 rounded shadow">
+                    <h2 class="section-title">求是要论</h2>
+                    <div class="space-y-4">
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">坚定不移推动人口高质量发展</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">推动深化产业工人队伍建设改革举措落地见效</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">加强营商性、基础性、兜底性民生建设</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">"老百姓的事，再小也是大大的事"</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">为推进中国式现代化提供坚强能源电力保障</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Network Comments Section -->
+                <div class="bg-white p-6 mb-6 rounded shadow">
+                    <h2 class="section-title">求是网评</h2>
+                    <div class="space-y-4">
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">让贫困成为过去，让美好愿景成为现实</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">努力开创亚太发展新时代</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">加强海洋科技创新，推进深海事业发展</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">以高水平对外开放促进深层次改革高质量发展</h3>
+                        </div>
+                        <div class="article-item">
+                            <h3 class="text-lg font-medium hover:text-red-600 cursor-pointer">共同推动人类文明发展进步</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-span-4">
+                <!-- Online Journal Section -->
+                <div class="bg-white p-6 mb-6 rounded shadow">
+                    <h2 class="section-title">在线读刊</h2>
+                    <div class="text-center mb-4">
+                        <img src="/api/placeholder/200/280" alt="期刊封面" class="mx-auto mb-4">
+                        <div class="space-y-2">
+                            <div class="text-xl font-bold text-red-600">2024 年第 22 期</div>
+                            <div class="text-gray-600">2024 年第 21 期</div>
+                            <div class="text-gray-600">2024 年第 20 期</div>
+                            <div class="text-gray-600">2024 年第 19 期</div>
+                            <a href="#" class="read-more mt-4">查看更多往期 →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous right column content remains the same -->
+            </div>
+        </div>
+
+        <!-- News Ticker -->
+        <div class="bg-white p-4 mt-6 rounded shadow">
+            <div class="flex items-center space-x-4">
+                <span class="text-red-600 font-bold whitespace-nowrap">资讯</span>
+                <div class="overflow-hidden flex-1">
+                    <div class="flex space-x-8">
+                        <span class="whitespace-nowrap hover:text-red-600 cursor-pointer">辛延等审读实施顿覆政改活动</span>
+                        <span class="whitespace-nowrap hover:text-red-600 cursor-pointer">2024年世界互联网大会"互联网之光"博览会在浙江乌镇开幕</span>
+                        <span class="whitespace-nowrap hover:text-red-600 cursor-pointer">《探晓贫》</span>
+                        <span class="whitespace-nowrap hover:text-red-600 cursor-pointer">中央第九巡视组巡视求是杂志社工作动态</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Banners -->
+        <div class="grid grid-cols-3 gap-6 mt-6">
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="理论中国·理论新境界" class="w-full">
+            </div>
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="理响中国" class="w-full">
+            </div>
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="学习贯彻习近平新时代中国特色社会主义思想主题教育" class="w-full">
+            </div>
+        </div>
+
+        <!-- Additional Banners -->
+        <div class="grid grid-cols-3 gap-6 mt-6">
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="奋进强国路 阔步新征程" class="w-full">
+            </div>
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="文化中国行" class="w-full">
+            </div>
+            <div class="rounded overflow-hidden shadow">
+                <img src="/api/placeholder/400/100" alt="庆祝全国人民代表大会成立70周年" class="w-full">
+            </div>
+        </div>
+    </main>
+
+    <!-- Previous footer content remains the same -->
+</body>
+</html>

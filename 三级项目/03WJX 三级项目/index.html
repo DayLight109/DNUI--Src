@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国国家图书馆</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #0AA3A3;
+            padding: 20px 0;
+            color: white;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo-text {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 4px;
+        }
+        .top-links {
+            display: flex;
+            gap: 20px;
+        }
+        .top-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .main-nav {
+            background-color: #0AA3A3;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+        .nav-content a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+        }
+        .nav-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .search-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .search-select {
+            padding: 10px;
+            border: none;
+            border-right: 1px solid #eee;
+            outline: none;
+            color: #666;
+        }
+        .search-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        .search-button {
+            padding: 10px 30px;
+            background-color: #0AA3A3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .banner {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .banner img {
+            width: 100%;
+            border-radius: 4px;
+        }
+        .quick-links {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px 15px;
+            background-color: white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .quick-link {
+            text-align: center;
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .quick-link svg {
+            width: 32px;
+            height: 32px;
+            fill: #0AA3A3;
+        }
+        .bottom-nav {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 2px solid #0AA3A3;
+        }
+        .bottom-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 0 15px;
+        }
+        .bottom-nav-section h3 {
+            color: #0AA3A3;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bottom-nav-section svg {
+            width: 20px;
+            height: 20px;
+            fill: #0AA3A3;
+        }
+        .bottom-nav-section ul {
+            list-style: none;
+        }
+        .bottom-nav-section li {
+            margin: 10px 0;
+        }
+        .bottom-nav-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .bottom-nav-section a:hover {
+            color: #0AA3A3;
+        }
+        .float-buttons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .float-button {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .float-button svg {
+            width: 20px;
+            height: 20px;
+            fill: #0AA3A3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <div class="logo-text">
+                    <div class="logo-icon"></div>
+                    中国国家图书馆 · 中国国家数字图书馆 · 国家典籍博物馆
+                </div>
+                <div class="top-links">
+                    <a href="#">登录</a>
+                    <a href="#">无障碍</a>
+                    <a href="#">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-content">
+            <a href="#">首页</a>
+            <a href="#">资讯信息</a>
+            <a href="#">读者指南</a>
+            <a href="#">资源服务</a>
+            <a href="#">业界服务</a>
+            <a href="#">法律馆</a>
+            <a href="#">少儿馆</a>
+            <a href="#">重点项目</a>
+            <a href="#">国家图书馆基金会</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <div class="search-box">
+            <select class="search-select">
+                <option>文津搜索</option>
+            </select>
+            <input type="text" class="search-input" placeholder="请输入入您要检索信息">
+            <button class="search-button">检索</button>
+        </div>
+    </div>
+
+    <div class="quick-links">
+        <a href="#" class="quick-link">
+            <!-- SVG 代码位置 -->
+            <svg t="1732527671122" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="970" width="200" height="200"><path d="M484.096 969.6256a105.984 105.984 0 0 1-75.5712-31.3344l-318.5152-318.464a107.1104 107.1104 0 0 1 0-151.2448l394.9568-394.9056a107.2128 107.2128 0 0 1 102.0416-28.0064l253.7472 64.7168a106.8544 106.8544 0 0 1 77.1584 77.1584l64.7168 253.7472a107.52 107.52 0 0 1-27.9552 102.0416l-394.9568 394.9568a106.1888 106.1888 0 0 1-75.6224 31.3344z m76.8-865.8432a46.08 46.08 0 0 0-32.256 13.312L133.4784 512a45.3632 45.3632 0 0 0 0 64.3072l318.464 318.5152a45.4656 45.4656 0 0 0 64.3072 0L911.36 499.9168a45.7216 45.7216 0 0 0 11.9296-43.4176L858.368 202.752a45.4144 45.4144 0 0 0-32.8192-32.8192l-253.7472-64.7168a43.6224 43.6224 0 0 0-11.1616-1.4336z" fill="#333333" p-id="971"></path><path d="M673.1264 449.792a107.9296 107.9296 0 1 1 107.8784-107.9296 108.032 108.032 0 0 1-107.8784 107.9296z m0-154.368a46.4896 46.4896 0 1 0 46.4384 46.4384 46.4896 46.4896 0 0 0-46.4384-46.4384z" fill="#333333" p-id="972"></path></svg>
+            <svg viewBox="0 0 24 24" class="quick-link-icon">
+            </svg>
+            入馆须知
+        </a>
+        <a href="#" class="quick-link">
+            <!-- SVG 代码位置-->
+            <svg t="1732527706331" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1125" width="200" height="200"><path d="M512 985.4464a30.72 30.72 0 0 1-12.6976-2.7648A763.8016 763.8016 0 0 1 223.232 768c-79.616-99.7376-121.6512-208.4352-121.6512-314.2656a410.4192 410.4192 0 0 1 820.8384 0c0 230.4-205.1072 444.6208-398.08 529.152a30.72 30.72 0 0 1-12.3392 2.56z m0-880.64a349.3888 349.3888 0 0 0-348.9792 348.8768c0 197.9392 173.6192 382.6176 349.184 467.2A688.7424 688.7424 0 0 0 750.2336 732.16c50.5344-63.1296 110.7456-162.6624 110.7456-278.272A349.3888 349.3888 0 0 0 512 104.704z" fill="#333333" p-id="1126"></path><path d="M512 630.4768a176.7936 176.7936 0 1 1 176.7424-176.7936A176.9472 176.9472 0 0 1 512 630.4768z m0-291.84a115.3536 115.3536 0 1 0 115.3024 115.3024A115.456 115.456 0 0 0 512 338.3808z" fill="#333333" p-id="1127"></path></svg>
+            <svg viewBox="0 0 24 24" class="quick-link-icon">
+            </svg>
+            最新活动
+        </a>
+        <a href="#" class="quick-link">
+            <!-- SVG 代码位置-->
+            <svg t="1732527726587" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1141" width="200" height="200"><path d="M797.866667 85.333333h-81.066667c-93.866667 0-140.8 46.933333-140.8 140.8v81.066667c0 93.866667 51.2 140.8 140.8 140.8h81.066667c93.866667 0 140.8-51.2 140.8-140.8V226.133333C938.666667 132.266667 887.466667 85.333333 797.866667 85.333333zM307.2 571.733333H226.133333c-93.866667 0-140.8 51.2-140.8 140.8v81.066667C85.333333 887.466667 136.533333 938.666667 226.133333 938.666667h81.066667c93.866667 0 140.8-46.933333 140.8-140.8v-81.066667c4.266667-93.866667-46.933333-145.066667-140.8-145.066667z" p-id="1142"></path><path d="M268.8 268.8m-183.466667 0a183.466667 183.466667 0 1 0 366.933334 0 183.466667 183.466667 0 1 0-366.933334 0Z" p-id="1143"></path><path d="M755.2 755.2m-183.466667 0a183.466667 183.466667 0 1 0 366.933334 0 183.466667 183.466667 0 1 0-366.933334 0Z" p-id="1144"></path></svg>
+            <svg viewBox="0 0 24 24" class="quick-link-icon">
+            </svg>
+            最新公告
+        </a>
+        <a href="#" class="quick-link">
+            <!-- SVG 代码位置 -->
+            <svg t="1732527763179" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1450" width="200" height="200"><path d="M627.2 644.266667H396.8c-34.133333 0-55.466667-38.4-34.133333-68.266667 29.866667-42.666667 85.333333-72.533333 149.333333-72.533333s119.466667 29.866667 149.333333 72.533333a42.666667 42.666667 0 0 1-34.133333 68.266667zM512 247.466667c55.466667 0 98.133333 42.666667 98.133333 98.133333s-42.666667 98.133333-98.133333 98.133333-98.133333-42.666667-98.133333-98.133333c0-55.466667 42.666667-98.133333 98.133333-98.133333zM768 85.333333H256C183.466667 85.333333 128 140.8 128 213.333333v465.066667c0 68.266667 55.466667 128 128 128h34.133333c34.133333 0 68.266667 12.8 89.6 38.4l72.533334 72.533333c34.133333 34.133333 89.6 34.133333 119.466666 0l72.533334-72.533333c25.6-25.6 55.466667-38.4 89.6-38.4h34.133333c72.533333 0 128-55.466667 128-128V213.333333c0-72.533333-55.466667-128-128-128z" p-id="1451"></path></svg>
+            <svg viewBox="0 0 24 24" class="quick-link-icon">
+            </svg>
+            智能问答
+        </a>
+    </div>
+
+    <div class="bottom-nav">
+        <div class="bottom-nav-content">
+            <div class="bottom-nav-section">
+                <h3>
+                    <!-- Bottom Nav SVG Placeholder 1 -->
+                    <svg viewBox="0 0 24 24" class="bottom-nav-icon">
+                        
+                    </svg>
+                    读者服务
+                </h3>
+                <ul>
+                    <li><a href="#">图书借阅</a></li>
+                    <li><a href="#">网上图书馆</a></li>
+                    <li><a href="#">特色阅览室</a></li>
+                    <li><a href="#">外借处</a></li>
+                </ul>
+            </div>
+            <div class="bottom-nav-section">
+                <h3>
+                    <!-- Bottom Nav SVG Placeholder 2 -->
+                    <svg viewBox="0 0 24 24" class="bottom-nav-icon">
+                    </svg>
+                    资源服务
+                </h3>
+                <ul>
+                    <li><a href="#">馆藏目录</a></li>
+                    <li><a href="#">数字资源</a></li>
+                    <li><a href="#">专题资源</a></li>
+                    <li><a href="#">特色资源</a></li>
+                </ul>
+            </div>
+            <div class="bottom-nav-section">
+                <h3>
+                    <!-- Bottom Nav SVG Placeholder 3 -->
+                    <svg viewBox="0 0 24 24" class="bottom-nav-icon">
+                    </svg>
+                    业界服务
+                </h3>
+                <ul>
+                    <li><a href="#">联合编目</a></li>
+                    <li><a href="#">馆际互借</a></li>
+                    <li><a href="#">文献提供</a></li>
+                    <li><a href="#">培训中心</a></li>
+                </ul>
+            </div>
+            <div class="bottom-nav-section">
+                <h3>
+                    <!-- Bottom Nav SVG Placeholder 4 -->
+                    <svg viewBox="0 0 24 24" class="bottom-nav-icon">
+                    </svg>
+                    其他服务
+                </h3>
+                <ul>
+                    <li><a href="#">参观预约</a></li>
+                    <li><a href="#">场地租用</a></li>
+                    <li><a href="#">志愿者服务</a></li>
+                    <li><a href="#">读者卡办理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="float-buttons">
+        <div class="float-button">
+            <!-- Float Button SVG Placeholder -->
+            <svg viewBox="0 0 24 24">
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

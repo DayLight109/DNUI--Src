@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+            background: #f8f8f8;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 16px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+            background: #fff;
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            color: #999;
+        }
+
+        .wave-bg {
+            background: #FFF7ED;
+            position: relative;
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .wave-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-image: url('/api/placeholder/400/200');
+            opacity: 0.3;
+        }
+
+        .study-section {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .red-title {
+            color: #D02129;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-icon {
+            width: 48px;
+            height: 48px;
+            background: #FFF2E8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-text {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .news-list {
+            margin-top: 20px;
+            background: #fff;
+            padding: 0 16px;
+        }
+
+        .news-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .news-title {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .more-content {
+            text-align: center;
+            padding: 16px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        /* 保持原代码的底部导航栏样式 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background: white;
+            padding: 8px 0 4px;
+            border-top: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: #f26b3a;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        /* 页面切换样式 */
+        .page {
+            display: none;
+            animation: fadein 0.3s;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page-content {
+            padding-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        服务
+        <div class="search-icon">🔍</div>
+    </div>
+
+    <div class="wave-bg">
+        <div class="study-section">
+            <img src="/api/placeholder/60/60" alt="学习图标">
+            <div class="red-title">时事政治学习</div>
+        </div>
+    </div>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="menu-icon">📚</div>
+            <span class="menu-text">时政新闻</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">💭</div>
+            <span class="menu-text">时事评论</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">📝</div>
+            <span class="menu-text">学习笔记</span>
+        </div>
+        <div class="menu-item">
+            <div class="menu-icon">🎤</div>
+            <span class="menu-text">习语</span>
+        </div>
+    </div>
+
+    <div class="news-list">
+        <div class="news-item">
+            <div class="news-title">习近平向2024年世界互联网大会乌镇峰会开幕视频致贺</div>
+            <div class="news-meta">人民日报 • 16小时前 27评</div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">习近平出席二十国集团领导人第十九次峰会闭幕会议</div>
+            <div class="news-meta">人民日报 • 16小时前 4评</div>
+        </div>
+        <div class="news-item">
+            <div class="news-title">习近平抵达巴西利亚开始对巴西进行国事访问</div>
+            <div class="news-meta">人民日报 • 16小时前 2评</div>
+        </div>
+    </div>
+
+    <div class="more-content">
+        更多内容 >
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav class="bottom-nav">
+        <a href="./index.html" class="nav-item" onclick="switchPage('newsPage', this)">
+            <span class="nav-icon">📰</span>
+            <span>新闻</span>
+        </a>
+        
+        <a href="./people.html" class="nav-item" onclick="switchPage('peoplePage', this)">
+            <span class="nav-icon">📱</span>
+            <span>人民号</span>
+        </a>
+        
+        <a href="./video.html" class="nav-item" onclick="switchPage('videoPage', this)">
+            <span class="nav-icon">🎥</span>
+            <span>视频</span>
+        </a>
+        
+        <a href="./service.html" class="nav-item active" onclick="switchPage('servicePage', this)">
+            <span class="nav-icon">❤️</span>
+            <span>服务</span>
+        </a>
+        
+        <a href="./my.html" class="nav-item" onclick="switchPage('myPage', this)">
+            <span class="nav-icon">👤</span>
+            <span>我的</span>
+        </a>
+    </nav>
+
+    <script>
+        function switchPage(pageId, navItem) {
+            // 移除所有导航项的active类
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 添加active类到选中的导航项
+            navItem.classList.add('active');
+
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
